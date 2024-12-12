@@ -112,4 +112,77 @@ fn main() {
     // -> pointer
     // 1..5 range
 
+    // CONDITIONAL STATEMENTS
+    // if, else if, else
+    let age: i64 = 20;
+
+    if age > 18 {
+        println!("You can vote");
+    }
+    else if age < 18 {
+        println!("You cannot vote");
+    }
+    else {
+        println!("Enter a valid age");
+    }
+
+    // match (switch-case)
+    let num = 2;
+
+    match num {
+        1 => println!("This is 1"),
+        2 => println!("This is 2"),
+        3 => println!("This is 3"),
+        _ => println!("This is 4"),
+    }
+
+    // ITERATIVE STATEMENTS
+    // for loop, while loop, loop
+    let mum = [2,4,6,8,10];
+    for nums in mum {
+        println!("{}", nums);
+    }
+
+    let mut num = 5;
+
+    while num > 0 {
+        println!("Countdown: {}", num);
+        num -= 1;
+    }
+
+    let mut count = 0;
+    loop {
+        count += 1;
+        println!("Count: {}", count);
+
+        if count == 5 {
+            break;
+        }
+    }
+    
+    // FUNCTIONS
+    greet();
+
+    // FUNCTION WITH PARAMETERS
+    add(4,7);
+
+    // FUNCTION WITH RETURN VALUE
+    let result = square(4);
+    println!("{result}");
+
+    //CLOSURES (ANONYMOUS FUNCTION)
+    let clousre = |r: i32, s: i32| r+s;
+    println!("{}", clousre(4,2));
+}
+
+fn greet() {
+    println!("Hello, Emman!");
+}
+
+fn add(a: i32, b: i32) {
+println!("{}", a+b);
+}
+
+fn square(num: i32) -> i32 {
+    num * num
 }
