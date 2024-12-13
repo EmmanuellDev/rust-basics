@@ -1,3 +1,4 @@
+use std::io;
 fn main() {
     //VARIABLES
     let x = 5; // immutable variable
@@ -173,6 +174,9 @@ fn main() {
     //CLOSURES (ANONYMOUS FUNCTION)
     let clousre = |r: i32, s: i32| r+s;
     println!("{}", clousre(4,2));
+
+    area_of_circle();
+    odd_or_even();
 }
 
 fn greet() {
@@ -185,4 +189,39 @@ println!("{}", a+b);
 
 fn square(num: i32) -> i32 {
     num * num
+}
+
+fn area_of_circle() {
+    let pi: f64 = 3.14;
+    let mut radius = String::new();
+    println!("Enter the radius : ");
+    io::stdin().read_line(&mut radius).expect("Enter a valid input");
+    let rad: f64 = match radius.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Enter a valid input");
+            return;
+        },
+    };
+    let aoc = pi*rad*2.0;
+    println!("{aoc}");
+}
+
+fn odd_or_even() {
+    let mut x = String::new();
+    println!("Enter a Number : ");
+    io::stdin().read_line(&mut x).expect("Enter a valid input");
+    let y: i32 = match x.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Enter a valid input");
+            return;
+        }
+    };
+    if y%2==0 {
+        println!("The number is even");
+    }
+    else {
+        println!("The number is odd");
+    }
 }
